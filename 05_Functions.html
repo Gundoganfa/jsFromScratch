@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS from Scratch - 05 - Functions</title>
+    <meta charset="utf-8">  
+    <h2>Functions in JavaScript</h2>
+</head>
+<body>
+    <p>A JavaScript function is a block of code designed to perform a particular task.</p>
+    <p>A JavaScript function is executed when "something" invokes it (calls it).</p>
+    <h3>Function Declaration</h3>
+    <pre>
+        function name(parameter1, parameter2, parameter3) {
+          // code to be executed
+        }
+    </pre>
+    <h3>Example</h3>
+    <pre>
+        function showMessage() {
+          alert('Hello everyone!');
+        }
+
+        showMessage(); // call the function
+    </pre>
+    <script>
+        
+        function showMessage() {
+          alert('Hello everyone!');
+        }
+
+        showMessage();// call the function
+    </script>
+
+    <h3>Function Parameters</h3>
+    <p>Function parameters are the names listed in the function definition.</p>
+    <p>Function arguments are the real values passed to (and received by) the function.</p>
+    <pre>
+        function showMessage(from, text) { // from, text are parameters
+          alert(from + ': ' + text);
+        }
+
+        showMessage('Ann', 'Hello!'); // Ann, Hello! are arguments
+        showMessage('Ann', "What's up?");
+    </pre>
+    <script>
+        function showMessage(from, text) { // from, text are parameters
+          alert(from + ': ' + text);
+        }
+
+        showMessage('Ann', 'Hello!'); // Ann, Hello! are arguments
+        showMessage('Ann', "What's up?");
+    </script>
+
+    <h3>Default Parameters</h3>
+    <p>ES6 (ECMAScript 6 or ECMAScript 2015) provides a way to set default values for parameters.</p>
+    <pre>
+        function showMessage(from, text = "no text given") {
+          alert(from + ": " + text);
+        }
+
+        showMessage("Ann"); // Ann: no text given
+        showMessage("Ann", "Hello!"); // Ann: Hello!
+    </pre>
+    <script>
+        function showMessage(from, text = "no text given") {
+          alert(from + ": " + text);
+        }
+
+        showMessage("Ann"); // Ann: no text given
+        showMessage("Ann", "Hello!"); // Ann: Hello!
+    </script>
+
+    <h3>Returning a value</h3>
+    <p>The <code>return</code> statement stops the execution of a function and returns a value from that function.</p>
+    <pre>
+        function sum(a, b) {
+          return a + b;
+        }
+
+        let result = sum(1, 2);
+        alert(result); // 3 
+    </pre>
+    <script>
+        function sum(a, b) {
+          return a + b;
+        }
+
+        let result = sum(1, 2);
+        alert(result); // 3
+    </script>
+
+    <h3>Function Expressions</h3>
+    <p>Function expressions are similar to function declarations, but the function is created at the time the execution reaches it and is not hoisted.</p>
+    <pre>
+        let sayHi = function() {
+          alert("Hello");
+        };
+
+        sayHi();
+        alert(sayHi); // shows the function code
+    </pre>
+    <script>
+        let sayHi = function() {
+          alert("Hello");
+        };
+
+        sayHi();
+        alert(sayHi); // shows the function code
+    </script>
+    <h3>Arrow Functions</h3>
+    <p>Arrow functions provide a shorter syntax for writing function expressions.</p>
+    <pre>
+        let sum = (a, b) => a + b;
+
+        alert( sum(1, 2) ); // 3
+        alert( sum(5, 10) ); // 15
+    </pre>
+    <script>
+        let sum = (a, b) => a + b;
+
+        alert( sum(1, 2) ); // 3
+        alert( sum(5, 10) ); // 15
+    </script>
+    <br>
+    <br>
+    <h3>Let's make another example with Arrow Functions</h3>
+    <p>Arrow functions can also be used for single-line expressions.</p>
+    <pre>
+        let double = n => n * 2;
+
+        alert( double(3) ); // 6
+        alert( double(4) ); // 8
+    </pre>
+    <script>
+        let double = n => n * 2;
+
+        alert("let double = n => n * 2; double(3) : " + double(3)); // 6
+        alert("let double = n => n * 2; double(4) : " + double(4)); // 8
+    </script>
+    <br>
+    <br>    
+    <h3>Functions are Objects</h3>
+    <p>In JavaScript, functions are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments to other functions, and returned from other functions.</p>
+    <pre>
+        function greet(name) {
+          return "Hello, " + name + "!";
+        }
+
+        let sayHello = greet; // Assigning function to a variable
+        alert( sayHello("Alice") ); // Hello, Alice!
+
+        function processUserInput(callback) {
+          let name = prompt("Please enter your name.");
+          alert( callback(name) );
+        }
+
+        processUserInput(greet); // Passing function as an argument
+        function createGreeting(greeting) {
+          return function(name) {
+            return greeting + ", " + name + "!";
+          };
+        }
+        let sayHi = createGreeting("Hi"); // Returning function from another function
+        alert( sayHi("Bob") ); // Hi, Bob!
+    </pre>
+    <script>
+        function greet(name) {
+          return "Hello, " + name + "!";
+        }
+
+        let sayHello = greet; // Assigning function to a variable
+        alert( sayHello("Alice") ); // Hello, Alice!
+
+        function processUserInput(callback) {
+          let name = prompt("Please enter your name.");
+          alert( callback(name) );
+        }
+
+        processUserInput(greet); // Passing function as an argument
+        function createGreeting(greeting) {
+          return function(name) {
+            return greeting + ", " + name + "!";
+          };
+        }
+        sayHi = createGreeting("Hi"); // Returning function from another function
+        alert( sayHi("Bob") ); // Hi, Bob!
+    </script>
+
+    <a href="04_Objects.html">&larr; Previous Page</a> |
+    <a href="06_Arrays.html">Next Page &rarr;</a>
+</body> 
+</html>

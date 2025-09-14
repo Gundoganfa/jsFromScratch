@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS from Scratch - 03 - Logical Operators</title>
+    <meta charset="utf-8">      
+    <h2>Logical Operators</h2>
+</head>
+<body>
+    <p>Logical operators are used to determine the logic between variables or values.</p>
+    <ul>
+        <li><code>AND (&&)</code> - Returns true if both statements are true</li>
+        <li><code>OR (||)</code> - Returns true if one of the statements is true</li>
+        <li><code>NOT (!)</code> - Reverse the result, returns false if the result is true</li>
+    </ul>   
+    <h3>Logical AND (&&)</h3>
+    <p>The <code>AND</code> operator is a binary operator. It takes two operands and returns true if both operands are true.</p>
+    <pre>      
+        A     B     A && B
+        -------------------
+        true  true   true
+        true  false  false
+        false true   false
+        false false  false
+    </pre>
+    <script>
+        a = true;
+        b = false;
+        console.log("a && b : " + (a && b)); // false
+        console.log("a && a : " + (a && a)); // true
+        console.log("b && b : " + (b && b)); // false
+    </script>
+
+    <h3>Logical OR (||)</h3>
+    <p>The <code>OR</code> operator is a binary operator. It takes two operands and returns true if one of the operands is true.</p>
+    <pre>      
+        A     B     A || B
+        -------------------
+        true  true   true
+        true  false  true
+        false true   true
+        false false  false
+    </pre>
+    <p>Now we will see some examples in console:</p>
+    <pre>
+        let a = true;
+        let b = false;
+        console.log("a || b : " + (a || b)); // true
+        console.log("a || a : " + (a || a)); // true
+        console.log("b || b : " + (b || b)); // false
+    </pre>
+    Open developer tools of your browser to see the results in console.
+    <br>    
+    <script>    
+        a = true;
+        b = false;
+        console.log("a || b : " + (a || b)); // true
+        console.log("a || a : " + (a || a)); // true
+        console.log("b || b : " + (b || b)); // false
+    </script>
+
+    <h3>Logical NOT (!)</h3>
+    <p>The <code>NOT</code> operator is a unary operator. It takes one operand and returns the opposite boolean value.</p>
+    <pre>      
+        A     !A
+        ----------
+        true  false
+        false true
+    </pre>
+    <p>Now we will see some examples in console:</p>
+    <pre>
+        let a = true;
+        console.log("!a : " + (!a)); // false
+        console.log("!!a : " + (!!a)); // true
+    </pre>      
+    Open developer tools of your browser to see the results in console.
+    <br>
+    <script>    
+        a = true;
+        console.log("!a : " + (!a)); // false
+        console.log("!!a : " + (!!a)); // true
+    </script>
+    <h3>Logical Operators with Non-Boolean Values</h3>
+    <p>Logical operators can be used with non-boolean values. In such cases, they return one of the operands based on their truthiness.</p>
+    <ul>
+        <li>The <code>AND (&&)</code> operator returns the first falsy operand or the last operand if all are truthy.</li>
+        <li>The <code>OR (||)</code> operator returns the first truthy operand or the last operand if all are falsy.</li>
+        <li>The <code>NOT (!)</code> operator converts the operand to a boolean and then negates it.</li>
+    </ul>
+    <p>Now we will see some examples in console:</p>    
+    <pre>
+        console.log(1 && 0); // 0
+        console.log(1 && 5); // 5
+        console.log(null && 5); // null
+        console.log(0 && "hello"); // 0
+        console.log(1 || 0); // 1
+        console.log(null || "hello"); // "hello"
+        console.log(null || 0 || 5); // 5
+        console.log(!1); // false
+        console.log(!0); // true
+        console.log(!!"hello"); // true
+        console.log(!!""); // false
+    </pre>
+    Open developer tools of your browser to see the results in console.
+    <br>
+    <script>
+        console.log(1 && 0); // 0
+        console.log(1 && 5); // 5
+        console.log(null && 5); // null
+        console.log(0 && "hello"); // 0
+        console.log(1 || 0); // 1
+        console.log(null || "hello"); // "hello"
+        console.log(null || 0 || 5); // 5
+        console.log(!1); // false
+        console.log(!0); // true
+        console.log(!!"hello"); // true
+        console.log(!!""); // false 
+    </script>
+    <h3>Short-Circuit Evaluation</h3>
+    <p>Logical operators use short-circuit evaluation, meaning they stop evaluating as soon as the result is determined.</p>
+    <ul>
+        <li>For <code>AND (&&)</code>, if the first operand is falsy, it returns that operand without evaluating the second.</li>
+        <li>For <code>OR (||)</code>, if the first operand is truthy, it returns that operand without evaluating the second.</li>
+    </ul>   
+    <p>Now we will see some examples in console:</p>
+    <pre>
+        function getValue() {
+            console.log("getValue called");
+            return 5;
+        }
+        console.log(0 && getValue()); // 0, getValue is not called
+        console.log(1 || getValue()); // 1, getValue is not called
+        console.log(1 && getValue()); // 5, getValue is called
+        console.log(0 || getValue()); // 5, getValue is called
+    </pre>
+    Open developer tools of your browser to see the results in console.     
+    <br>
+    <script>
+        function getValue() {
+            console.log("getValue called");
+            return 5;
+        }
+        console.log(0 && getValue()); // 0, getValue is not called
+        console.log(1 || getValue()); // 1, getValue is not called
+        console.log(1 && getValue()); // 5, getValue is called
+        console.log(0 || getValue()); // 5, getValue is called
+    </script>
+    <h3>Practical Example</h3>
+    <p>Logical operators are often used in conditional statements to combine multiple conditions.</p>
+    <pre>
+        let age = 25;
+        if (age >= 18 && age <= 65) {
+            console.log("Eligible for work");
+        } else {
+            console.log("Not eligible for work");
+        }
+        let day = "Saturday";
+        if (day === "Saturday" || day === "Sunday") {
+            console.log("It's the weekend!");
+        } else {
+            console.log("It's a weekday.");
+        }
+        let isMember = true;
+        let hasCoupon = false;
+        if (isMember || hasCoupon) {
+            console.log("You get a discount!");
+        } else {
+            console.log("No discount available.");
+        }
+        let isAdmin = false;
+        if (!isAdmin) {
+            console.log("Access denied. Admins only.");
+        } else {
+            console.log("Welcome, Admin!");
+        }   
+    </pre>
+    Open developer tools of your browser to see the results in console.
+    <br>
+    <script>
+        let age = 25;
+        if (age >= 18 && age <= 65) {
+            console.log("Eligible for work");
+        } else {
+            console.log("Not eligible for work");
+        }
+        let day = "Saturday";
+        if (day === "Saturday" || day === "Sunday") {
+            console.log("It's the weekend!");
+        } else {
+            console.log("It's a weekday.");
+        }
+        let isMember = true;
+        let hasCoupon = false;
+        if (isMember || hasCoupon) {
+            console.log("You get a discount!");
+        } else {
+            console.log("No discount available.");
+        }
+        let isAdmin = false;
+        if (!isAdmin) {
+            console.log("Access denied. Admins only.");
+        } else {
+            console.log("Welcome, Admin!");
+        }
+    </script>
+    <h3>Summary</h3>
+    <p>Logical operators are used to perform operations on one or more boolean values.</p>
+    <ul>
+        <li><code>AND (&&)</code> returns true if both operands are true.</li>
+        <li><code>OR (||)</code> returns true if at least one operand is true.</li>
+        <li><code>NOT (!)</code> negates the boolean value.</li>
+    </ul>
+    <p>They can also be used with non-boolean values, returning one of the operands based on their truthiness.</p>
+    <p>Logical operators use short-circuit evaluation to optimize performance.</p>
+    <p>They are commonly used in conditional statements to combine multiple conditions.</p>
+    <p>Understanding logical operators is essential for effective programming in JavaScript.</p>
+    <h3>Next Steps</h3>
+    <p>Practice using logical operators in various scenarios to become more comfortable with their behavior and
+    applications.</p>
+    <p>Explore more complex logical expressions and how they can be used in real-world applications.</p>
+    <p>Continue learning about other JavaScript concepts to build a strong foundation in programming.</p>
+    <div></div>
+    <script>
+        // You can add more JavaScript code here to practice what you've learned.
+    </script>
+    <a href="02_Conditions.html">&larr; Previous Page</a> |
+    <a href="04_Objects.html">Next Page &rarr;</a>
+</body>
+</html> 

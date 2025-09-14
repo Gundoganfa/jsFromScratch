@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS from Scratch - 02 - Conditions</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2>Conditions in JavaScript</h2>       
+    <p>Conditional statements are used to perform different actions based on different conditions.</p>
+    <p>In JavaScript we have the following conditional statements:</p>
+    <ul>
+        <li><code>if</code> statement</li>
+        <li><code>if...else</code> statement</li>
+        <li><code>else if</code> statement</li>
+        <li><code>switch</code> statement</li>
+    </ul>   
+    <h3>The if statement</h3>
+    <p>Use the <code>if</code> statement to specify a block of code to be executed, if a specified condition is true.</p>
+    <pre>      
+        if (condition) {
+          // code to be executed if condition is true
+        }
+    </pre>
+    <h3>The if...else statement</h3>
+    <p>Use the <code>if...else</code> statement to specify a block of code to be executed, if a specified condition is true, and another block of code to be executed if the condition is false.</p>
+    <pre>
+        if (condition) {
+          // code to be executed if condition is true
+        } else {
+          // code to be executed if condition is false
+        }
+    </pre>
+    bu formatta aşağıdaki kodu çalıştırırsak Good Day yazısını görürüz.
+    <pre>
+        let hour = 10;
+        if (hour < 18) {
+            document.getElementById("result").innerHTML = "Good day";
+        } else {
+            document.getElementById("result").innerHTML = "Good evening";
+        }
+    </pre>
+    <div id="result"></div>
+    <script>
+        let hour = 10;
+        if (hour < 18) {
+            document.getElementById("result").innerHTML = "Good day\n\n";
+        } else {
+            document.getElementById("result").innerHTML = "Good evening\n";
+        }
+    </script>
+
+    Koşullu (ternary) operatörü, kısa bir if-else yapısıdır. Şu şekilde yazılır:
+
+    <pre>
+        koşul ? doğruysa_değer : yanlışsa_değer
+    </pre>
+
+    bu formatta aşağıdaki kodu çalıştırırsak yine Good Day yazısını görürüz.
+    <pre>
+        let hour = 10;
+        document.getElementById("result2").innerHTML = (hour < 18) ? "Good day" : "Good evening";
+    </pre>
+    <div id="result2">  </div>  
+    <script>
+        // conditional (ternary) operator
+        // condition ? value1 : value2
+        document.getElementById("result2").innerHTML = (hour < 18) ? "Good day" : "Good evening";
+    </script>
+    <h3>The else if statement</h3>
+    <p>Use the <code>else if</code> statement to specify a new condition to test, if the first condition is false.</p>
+    <pre>
+        if (condition1) {
+          // code to be executed if condition1 is true
+        } else if (condition2) {
+          // code to be executed if condition1 is false and condition2 is true
+        } else {
+          // code to be executed if both condition1 and condition2 are false
+        }
+    </pre>
+    bu formatta aşağıdaki kodu çalıştırırsak Good Morning yazısını görürüz
+    <pre>
+        let hour2 = 10;
+        if (hour2 < 10) {
+            document.getElementById("result3").innerHTML = "Good morning";
+        } else if (hour2 < 20) {
+            document.getElementById("result3").innerHTML = "Good day";
+        } else {
+            document.getElementById("result3").innerHTML = "Good evening";
+        }
+    </pre>
+    <div id="result3"></div>
+    <script>
+        let hour2 = 10;
+        if (hour2 < 10) {
+            document.getElementById("result3").innerHTML = "Good morning\n\n";
+        } else if (hour2 < 20) {
+            document.getElementById("result3").innerHTML = "Good day\n\n";
+        } else {
+            document.getElementById("result3").innerHTML = "Good evening\n\n";
+        }
+    </script>
+    <h3>The switch statement</h3>
+    <p>The <code>switch</code> statement is used to perform different actions based on different conditions.</p>
+    <pre>
+        switch(expression) {
+          case x:
+            // code block
+            break;
+          case y:
+            // code block
+            break;
+          default:
+            // code block
+        }
+    </pre>
+    bu formatta aşağıdaki kodu çalıştırırsak Sunday yazısını görürüz
+    <pre>
+        let day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+        document.getElementById("result4").innerHTML = "Today is " + day;
+    </pre>
+    <div id="result4"></div>
+    <script>
+        let day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+        document.getElementById("result4").innerHTML = "Today is " + day;
+    </script>
+    <br>
+    <a href="01_Variables.html">&larr; Previous Page</a> |
+    <a href="03_LogicalOperators.html">Next Page &rarr;</a>
+</body>
+</html>
