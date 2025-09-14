@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript Objects / Nesneler</title>
+    <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f9f9f9; }
+    h1, h2 { color: #333; }
+    code { background-color: #eee; padding: 2px 6px; border-radius: 4px; }
+    .highlight { background-color: #dff0d8; padding: 10px; border-left: 4px solid #3c763d; }
+  </style>
+</head>
+    <body>
+        <h1>JavaScript Objects / Nesneler</h1>
+
+        <p> Nesneler, değişkenlere benzer ama yalnızca değer değil, <strong>özellikler (properties)</strong> ve
+        <strong>yöntemler (methods)</strong> de tutar. Ad–değer çiftleriyle veri saklayan konteynerler gibidir.
+        </p>
+        <!-- Nesne oluşturma bölümü-->
+        <details>
+            <summary><strong>JavaScript’te Nesne Oluşturma</strong></summary>
+            
+
+            <h3>1) Object Literal</h3>
+            <p>Tek seferlik nesneler için en pratik ve okunabilir yöntemdir.</p>
+            <pre><code>&lt;script&gt;
+            const person = {
+            name: "John",
+            age: 30,
+            greet: function() {
+            console.log("Hello, my name is " + this.name);
+            }
+            };
+            person.greet(); // Hello, my name is John
+            &lt;/script&gt;</code></pre>
+
+            <h3>2) Constructor Fonksiyonu</h3>
+            <p>Aynı türden birden fazla nesne üretmek için uygundur; ancak her örnek için metot kopyalanır.</p>
+            <pre><code>&lt;script&gt;
+            function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.greet = function() {
+            console.log("Hello, my name is " + this.name);
+            };
+            }
+
+            const p1 = new Person("John", 30);
+            const p2 = new Person("Alice", 25);
+            p1.greet();
+            p2.greet();
+            &lt;/script&gt;</code></pre>
+
+            <h3>3) Class (ES6)</h3>
+            <p>Constructor fonksiyonunun modern ve daha okunabilir karşılığıdır. Metotlar prototipte paylaşılır (daha verimli).</p>
+            <pre><code>&lt;script&gt;
+            class Person {
+            constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            }
+            greet() {
+            console.log("Hello, my name is " + this.name);
+            }
+            }
+
+            const person = new Person("John", 30);
+            person.greet();
+            &lt;/script&gt;</code></pre>
+
+            <h2>Özet</h2>
+            <ul>
+            <li><strong>Object literal</strong>: Tek nesne için kısa ve anlaşılır.</li>
+            <li><strong>Constructor function</strong>: Çoklu üretim için kullanılabilir ama modern projelerde daha az tercih edilir.</li>
+            <li><strong>Class</strong>: Modern, okunaklı ve bellek açısından verimli; güncel projelerde yaygın.</li>
+            </ul>
+        </details>
+        <!-- Nesne özelliklerine erişim bölümü-->
+        <details>
+            <summary><strong>JavaScript’te Nesne Özelliklerine Erişim</strong></summary>
+
+            <p>Bir nesnenin özelliklerine iki şekilde erişebilirsiniz: nokta notasyonu veya köşeli parantez notasyonu.</p>
+            <pre><code>
+            // Nokta Notasyonu
+            console.log(person.name);
+            person.greet();
+
+            // Köşeli Parantez Notasyonu
+            console.log(person["age"]);
+            person["greet"]();
+            </code></pre>
+            <p>Yukarıdaki örnekte, <code>person</code> nesnesinin <code>name</code> ve <code>age</code> özelliklerine eriştik ve <code>greet</code> yöntemini çağırdık.</p>
+            <h2>Özellik Ekleme ve Değiştirme</h2>
+            <p>Bir nesneye yeni özellikler ekleyebilir veya mevcut özelliklerin değerini değiştirebilirsiniz.</p>
+            <pre><code>
+            // Yeni özellik ekleme
+            person.job = "Developer";
+
+            // Mevcut özellikleri değiştirme
+            person.age = 31;
+            </code></pre>
+            <p>Yukarıdaki örnekte, <code>person</code> nesnesine yeni bir <code>job</code> özelliği ekledik ve <code>age</code> özelliğinin değerini 31 olarak değiştirdik.</p>
+            <h2>Örnek Kod</h2>
+            <pre><code>
+            const person = {
+                name: "John",
+                age: 30,
+                greet: function() {
+                    console.log("Hello, my name is " + this.name);
+                }
+            };
+            console.log(person.name); // John
+            person.greet(); // Hello, my name is John   
+            person.job = "Developer";
+            person.age = 31;
+            console.log(person.age); // 31      
+            console.log(person.job); // Developer
+            </code></pre>
+            <script>
+                const person = {
+                    name: "John",
+                    age: 30,
+                    greet: function() {
+                        console.log("Hello, my name is " + this.name);
+                    }
+                };
+                console.log(person.name); // John
+                person.greet(); // Hello, my name is John   
+                person.job = "Developer";
+                person.age = 31;
+                console.log(person.age); // 31      
+                console.log(person.job); // Developer
+            </script>
+            <h2>Summary / Özet</h2>
+            <ul>
+                <li>JavaScript nesneleri, adlandırılmış değerler (özellikler) ve işlevler (yöntemler) içeren veri yapılarıdır.</li>
+                <li>Nesne özelliklerine nokta notasyonu veya köşeli parantez notasyonu ile erişilebilir.</li>
+                <li>Nesnelere yeni özellikler eklenebilir ve mevcut özelliklerin değerleri değiştirilebilir.</li>
+
+            </ul>
+        </details>
+        <!-- Faydalı metotlar bölümü-->
+        <details>
+            <summary><strong>JavaScript Nesneleri ile İlgili Faydalı Metotlar</strong></summary>
+            <ul>
+                <li><code>Object.keys(obj)</code>: Verilen nesnenin tüm anahtarlarını içeren bir dizi döner.</li>
+                <li><code>Object.values(obj)</code>: Verilen nesnenin tüm değerlerini içeren bir dizi döner.</li>
+                <li><code>Object.entries(obj)</code>: Verilen nesnenin tüm anahtar-değer çiftlerini içeren bir dizi döner.</li>
+            </ul>
+            <pre><code>
+            const person = { //already defined above
+                name: "John",
+                age: 30,
+                job: "Developer"
+            };
+            
+            console.log("--- Useful Methods for JavaScript Objects ---");
+            console.log(Object.keys(person)); // ["name", "age", "job"]
+            console.log(Object.values(person)); // ["John", 30, "Developer"]
+            console.log(Object.entries(person)); // [["name", "John"], ["age", 30], ["job", "Developer"]]
+            </code></pre>
+            <script>
+                console.log("--- Useful Methods for JavaScript Objects ---");
+                console.log(Object.keys(person)); // ["name", "age", "job"]
+                console.log(Object.values(person)); // ["John", 30, "Developer"]
+                console.log(Object.entries(person)); // [["name", "John"], ["age", 30], ["job", "Developer"]]
+            </script>
+        </details>
+        <!-- Döngüler ile nesne özellikleri arasında gezinti bölümü-->
+        <details>
+            <summary><strong>Döngüler ile Nesne Özellikleri Arasında Gezinti</strong></summary> 
+            <p>JavaScript'te bir nesnenin tüm özellikleri üzerinde döngü yapmak için <code>for...in</code> döngüsü kullanılır. Bu döngü, nesnenin tüm enumerable (sayılabilir) özelliklerini tek tek işler.</p>
+            <pre>
+                <code>
+                console.log("--- Looping through Object Properties ---");
+                for (let key in person) {
+                    console.log(key + ": " + person[key]);
+                }   
+                </code>
+            </pre>
+            <script>
+                console.log("--- Looping through Object Properties ---");
+                for (let key in person) {
+                    console.log(key + ": " + person[key]);
+                }   
+            </script>
+
+        </details>
+        <details>
+            <summary><strong>Örnekler</strong></summary>
+            create an empyty object lecture
+            <details><summary>Hint</summary>
+                <pre><Code>
+                    const lecture = {}
+                </Code></pre>
+            </details>
+            add the property name with value Math 101;
+            <details><summary>Hint</summary>
+                <pre><code>
+                    lecture.name = "Math 101";
+                </code></pre>
+            </details>
+            add the property description with value "Basic Mathematics"
+            <details><summary>Hint</summary>
+                <pre><code>
+                    lecture.description = "Advanced Mathematics";
+                </code></pre>
+            </details>
+            change the name to "Math 201"
+            <details><summary>Hint</summary>
+            <pre><code>
+                lecture.name = "Math 201";
+            </code></pre>
+            </details>  
+            remove the description property
+            <details><summary>Hint</summary>
+                <pre><code>
+                    delete lecture.description;
+                </code></pre>
+            </details>
+            Correct the following JS code.
+            <pre><code>
+            let isEmpty = (Object)?true:false; 
+            
+            let user =  {
+                name:"fatih", 
+                surname:"gundogan", 
+            } 
+            
+            alert(isEmpty(user))
+            </code></pre>
+            <details><summary>Hint</summary>
+                <pre><code>
+                    function isEmpty(obj) {
+                    return Object.keys(obj).length === 0;
+                    }
+
+                    let user =  {
+                        name:"fatih", 
+                        surname:"gundogan", 
+                    }
+                    alert(isEmpty(user));
+                </code></pre>
+            </details>
+            Return the sum of all salaries of the following object. If the object is empty, the result must be 0.
+            <pre><code>
+            let salaries = {
+                John: 100,
+                Ann: 160,
+                Pete: 130
+            }   
+            </code></pre>
+            <details><summary>Hint</summary>
+                <pre><code>
+                let salaries = {
+                    John: 100,
+                    Ann: 160,
+                    Pete: 130
+                }   
+                let sum = 0;
+                for (let key in salaries) {
+                    sum += salaries[key];
+                }
+                </code></pre>
+            </details>
+            Multiply all numeric property values of the following object by 2.
+            <pre><code>
+            let menu = {
+                width: 200,
+                height: 300,
+                title: "My menu"
+            };
+            </code></pre>
+            <details><summary>Hint</summary>
+                <pre><code>
+                let menu = {
+                    width: 200,
+                    height: 300,
+                    title: "My menu"
+                };
+
+                for (let key in menu) {
+                    if (typeof menu[key] === 'number') {
+                        menu[key] *= 2;
+                    }
+                }
+                </code></pre>
+            </details>
+            write a function the the purpose above.
+            <pre><code>
+            function multiplyNumeric(obj) {
+                // your code
+            }
+            </code></pre>
+            <details><summary>Hint</summary>
+                <pre><code>
+                let menu = {
+                    width: 200,
+                    height: 300,
+                    title: "My menu"
+                };
+                function multiplyNumeric(obj) {
+                    for (let key in obj) {
+                        if (typeof obj[key] === 'number') {
+                            obj[key] *= 2;
+                        }
+                    }
+                }
+                multiplyNumeric(menu);
+                console.log(menu);
+                </code></pre>
+            </details>
+        </details>
+
+        <br><br>
+        <!-- Kod editörü için -->
+        <script src="components/jsCodeRunner.js"></script>
+        <br><br>
+        <div style="margin-top:20px;">
+            <a href="09_PolyfillandTranspilers.html">&larr; Previous Page</a> |
+            <a href="00_Index.html">Index</a> |
+            <a href="">Next Page &rarr;</a>
+        </div>
+</body>
+</html>

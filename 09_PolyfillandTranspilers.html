@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yeni JavaScript Özelliklerini Eski Tarayıcılarda Çalıştırmak</title>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; background-color: #f9f9f9; }
+    h1, h2 { color: #333; }
+    code { background-color: #eee; padding: 2px 6px; border-radius: 4px; }
+    .highlight { background-color: #dff0d8; padding: 10px; border-left: 4px solid #3c763d; }
+  </style>
+</head>
+<body>
+
+  <h1>Yeni JavaScript Özelliklerini Eski Tarayıcılarda Çalıştırmak</h1>
+
+  <p>JavaScript sürekli gelişiyor. Ancak eski tarayıcılar bu yeni özellikleri her zaman desteklemiyor. Bu sorunu çözmek için iki temel araç kullanılır:</p>
+
+  <ul>
+    <li><strong>Transpiler</strong>: Yeni sözdizimini eskiye çevirir.</li>
+    <li><strong>Polyfill</strong>: Eksik fonksiyonları tanımlar.</li>
+  </ul>
+
+  <h2>Transpiler Nedir?</h2>
+  <p>Modern JavaScript kodunu eski sözdizimine çeviren yazılımdır. Örneğin:</p>
+
+  <div class="highlight">
+    <p><strong>Önce:</strong> <code>height = height ?? 100;</code></p>
+    <p><strong>Sonra:</strong> <code>height = (height !== undefined && height !== null) ? height : 100;</code></p>
+  </div>
+
+  <p>En popüler transpiler: <strong>Babel</strong>. Genellikle <code>webpack</code> gibi araçlarla otomatik çalıştırılır.</p>
+
+  <h2>Polyfill Nedir?</h2>
+  <p>Yeni JavaScript fonksiyonlarını eski tarayıcılarda tanımlamak için kullanılır. Örneğin <code>Math.trunc()</code> fonksiyonu yoksa:</p>
+
+  <pre><code>
+if (!Math.trunc) {
+  Math.trunc = function(number) {
+    return number < 0 ? Math.ceil(number) : Math.floor(number);
+  };
+}
+  </code></pre>
+
+  <p>Popüler polyfill kütüphanesi: <strong>core-js</strong></p>
+
+  <h2>Özet</h2>
+  <p>Modern JavaScript özelliklerini kullanmaktan çekinmeyin. Sadece <strong>transpiler</strong> ve <strong>polyfill</strong> araçlarını doğru şekilde entegre ettiğinizden emin olun.</p>
+
+  <h2>Kaynaklar</h2>
+  <ul>
+    <li><a href="https://compat-table.github.io/compat-table/es6/" target="_blank">ES6 uyumluluk tablosu</a></li>
+    <li><a href="https://caniuse.com/" target="_blank">Can I use – Tarayıcı desteği</a></li>
+  </ul>
+
+    <div style="margin-top:20px;">
+      <a href="08_SomeNotes.html">&larr; Previous Page</a> |
+      <a href="00_Index.html">Index</a> |
+      <a href="10_Objects.html">Next Page &rarr;</a>
+    </div>
+</body>
+</html>
