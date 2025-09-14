@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS from Scratch - 05 - Functions - Examples</title>
+    <meta charset="utf-8">
+    <h2>Functions Examples in JavaScript</h2>
+</head>
+<body>
+    <p>Here are some examples of functions in JavaScript:</p>
+    Write in ? or || form.
+    <pre>
+        function checkAge(age) {
+          if (age >= 18) {
+            return true;
+          } else {
+            return confirm('Do you have permission from your parents?');
+          }
+        }
+    </pre>
+    Now we will see how to write above function in a shorter way using the ? (tenary) operator:
+    <pre>
+        function checkAge(age) {
+            return age>=18?true:confirm('Do you have permission from your parents?');
+        }
+    </pre>
+    Now we will see how to write above function in a shorter way using the || operator:
+    <pre>
+        function checkAge(age) {
+            return age>=18 || confirm('Do you have permission from your parents?');
+        }
+    </pre>
+    I personally prefer the middle one using the ? operator.
+    <br>
+    <br>
+    Here is another example of a function that calculates the minimum of two numbers:
+    <pre>
+        function min(a,b) {
+            return (a&lt;b)?a:b;
+        }
+        console.log(min(2,5)); // 2
+        console.log(min(3,-1)); // -1
+        console.log(min(1,1)); // 1
+    </pre>
+
+    Here is an example of an recursive Arrow Function that calculates the power of a number.
+    Attention, the function calls itself in its body with a smaller exponent until the exponent is 1.
+    <br>
+    <pre>
+        let power = (base, exponent) => {
+            if (exponent === 1) {
+                return base;
+            } else {
+                return base * power(base, exponent - 1);
+            }
+        };
+    </pre>
+    <script>
+        let power = (base, exponent) => {
+            if (exponent === 1) {
+                return base;
+            } else {
+                return base * power(base, exponent - 1);
+            }
+        };
+        console.log( power(2, 3) ); // 8
+        console.log( power(3, 3) ); // 27
+        console.log( power(4, 2) ); // 16
+        console.log( power(5, 1) ); // 5
+    </script>
+
+    Now let's see a function expression example, check the console for results:
+    <pre>
+        let sayHello = function() {
+            console.log("Hello!");
+        };
+        sayHello();
+
+    </pre>  
+    <script>
+        let sayHello = function() {
+            console.log("Hello!");
+        };
+        sayHello();
+    </script>
+    Note that the function has not a name, it is an anonymous function assigned to the variable sayHello.
+    <br>
+    check the console, we'll log sayHello variable:
+    <pre>
+        console.log(sayHello); // shows the function code
+    </pre>
+    <script>
+        console.log("Function Expressions ----------------------------");
+        console.log("sayHello variable:");
+        console.log(sayHello); // shows the function code
+    </script>
+
+    Here you can test your own code:
+    <br>
+    <script src="components/jsCodeRunner.js"></script>
+
+    <br>
+    <br>
+    <div style="margin-top:20px;">
+      <a href="05_Functions.html">&larr; Previous Page</a> |
+      <a href="00_Index.html">Index</a> |
+      <a href="07_Callbacks.html">Next Page &rarr;</a>
+    </div>
+</html>

@@ -5,102 +5,104 @@
 <body>
     <h2>Variables in JavaScript</h2>
 
-    Seven primitive data types:
-    number for numbers of any kind: integer or floating-point, integers are limited by ±(253-1).
-    bigint for integer numbers of arbitrary length.
-    string for strings. A string may have zero or more characters, there’s no separate single-character type.
-    boolean for true/false.
-    null for unknown values – a standalone type that has a single value null.
-    undefined for unassigned values – a standalone type that has a single value undefined.
-    symbol for unique identifiers.
-    And one non-primitive data type:
-    object for more complex data structures.
+    There are 7 primitive data types:
+    <ul>    
+        <li>number for both floating-point and integer numbers,</li>
+        <li>bigint for integer numbers of arbitrary length,</li>
+        <li>string for strings,</li>
+        <li>boolean for logical values: true/false,</li>
+        <li>null – a type with a single value null, meaning “empty” or “does not exist”,</li>
+        <li>undefined – a type with a single value undefined, meaning “not assigned”,</li>
+        <li>symbol – for unique identifiers.</li>
+    </ul>
+
+    <p style="color:red;">All examples are printed to the <strong>Console</strong>.  
+       Please open your browser DevTools (F12 → Console tab).</p>
 
     <!-- use js inbetween <script> tag js is coded directly into html -->
     <script> 
         let n = 123; // number
         const birthday = '18.04.1982';
         let age = 12; // someCode(birthday);
-        alert("n="+n);
+
+        console.log("n="+n);
         n = 12.345; // decimal number
-        alert("n="+n);
-        alert("birthday="+birthday);
-        alert("age="+age);  
-        alert('1/0 : ' + (1/0)); // infinity
-        alert('xyz/2 : ' + ("not a number" / 2)); // NaN
-        alert('Nan+1 : ' + (NaN + 1)); // NaN is sticky, exception: NaN ** 0 = 1
-        alert('now look into console for more details');
+        console.log("n="+n);
+        console.log("birthday="+birthday);
+        console.log("age="+age);  
+        console.log('1/0 : ' + (1/0)); // infinity
+        console.log('"not a number"/2 : ' + ("not a number" / 2)); // NaN
+        console.log('NaN+1 : ' + (NaN + 1)); // NaN
+        console.log('--- now look into console for more details ---');
 
-        // directly log into console (look into developer tools of your browser)
-        console.log("9007199254740991: " + 9007199254740991); // 9007199254740991
-        console.log("9007199254740991 + 1: " + (9007199254740991 + 1)); // 9007199254740992
-        console.log("9007199254740991 + 2: " + (9007199254740991 + 2)); // 9007199254740992
+        // Big number
+        console.log("9007199254740991: " + 9007199254740991);
+        console.log("9007199254740991 + 1: " + (9007199254740991 + 1));
+        console.log("9007199254740991 + 2: " + (9007199254740991 + 2));
 
-        // the "n" at the end means it's a BigInt
         const bigInt = 1234567890123456789012345678901234567890n;
-        console.log(typeof bigInt + ' : ' + bigInt); // bigint : 1234567890123456789012345678901234567890n
-        
+        console.log(typeof bigInt + ' : ' + bigInt); // bigint
+
         // strings
         let str = "variable str : Hello";
         let str2 = 'Single quotes are ok too';
-        let phrase = `can embed str = ${str}`; // ` backticks should be used.
+        let phrase = `can embed str = ${str}`;
         console.log(phrase);
         
         // boolean (true/false)
         let isGreater = 4 > 1;
-        console.log( 'BOOL type: ' + typeof isGreater + ' 4>1 value: ' + isGreater); // boolean
+        console.log('BOOL type: ' + typeof isGreater + ' 4>1 value: ' + isGreater);
         
         let myage = null;
-        console.log( 'NULL type: ' + typeof myage + ' value: ' + myage); // null
+        console.log('NULL type: ' + typeof myage + ' value: ' + myage);
 
         let undef = undefined;
-        console.log( 'UNDEFINED type: ' + typeof undef + ' value: ' + undef); // undefined
-        console.log( 'TYPE of 123: ' + typeof 123); // number
-        console.log( 'TYPE of "abc": ' + typeof "abc"); // string
-        console.log( 'TYPE of true: ' + typeof true); // boolean
-        console.log( 'TYPE of undefined: ' + typeof undefined); // undefined
-        console.log( 'TYPE of null: ' + typeof null); // object (this is a bug in JS, null is not an object)
-        console.log( 'TYPE of BigInt: ' + typeof 9007199254740991n); // bigint
+        console.log('UNDEFINED type: ' + typeof undef + ' value: ' + undef);
+        console.log('TYPE of 123: ' + typeof 123);
+        console.log('TYPE of "abc": ' + typeof "abc");
+        console.log('TYPE of true: ' + typeof true);
+        console.log('TYPE of undefined: ' + typeof undefined);
+        console.log('TYPE of null (bug): ' + typeof null);
+        console.log('TYPE of BigInt: ' + typeof 9007199254740991n);
 
-        alert("End of primitive types");
-        alert("Next: Objects, look into console for more details");
-        console.log("Objects ----------------------------");
+        console.log("=== End of primitive types ===");
+        console.log("=== Next: Objects ===");
+
         console.log("typeof is an operator not a function");
         console.log("typeof null is a historical bug in JavaScript, null is not an object");
-        console.log("typeof null: " + typeof null); // object (this is a bug in JS, null is not an object)
-        console.log("typeof undefined: " + typeof undefined); // undefined
-        console.log("typeof function(){}: " + typeof function(){}); // function
-        console.log("typeof []: " + typeof []); // object
-        console.log("typeof {}: " + typeof {}); // object      
-        console.log("typeof Symbol(): " + typeof Symbol()); // symbol
-        console.log("typeof 10n: " + typeof 10n); // bigint
-        console.log("typeof Math: " + typeof Math); // object
-        console.log("typeof JSON: " + typeof JSON); // object
-        console.log("typeof alert: " + typeof alert); // function
-        console.log("typeof console: " + typeof console); // object
-        console.log("typeof document: " + typeof document); // object
-        console.log("typeof window: " + typeof window); // object
+        console.log("typeof null: " + typeof null);
+        console.log("typeof undefined: " + typeof undefined);
+        console.log("typeof function(){}: " + typeof function(){});
+        console.log("typeof []: " + typeof []);
+        console.log("typeof {}: " + typeof {});
+        console.log("typeof Symbol(): " + typeof Symbol());
+        console.log("typeof 10n: " + typeof 10n);
+        console.log("typeof Math: " + typeof Math);
+        console.log("typeof JSON: " + typeof JSON);
+        console.log("typeof alert: " + typeof alert);
+        console.log("typeof console: " + typeof console);
+        console.log("typeof document: " + typeof document);
+        console.log("typeof window: " + typeof window);
 
-        alert("End of objects, begining of interaction");
-        console.log("Interaction with user");
-        console.log("you've already seen a lot of alert(...) calls");
-        console.log("now let's try prompt(...) and confirm(...)");
-        console.log("in IE, always use default value for prompt");
-        age = prompt("prompt example: How old are you?", 100);
-        alert(`You are ${age} years old!`);
+        console.log("=== End of objects, beginning of interaction ===");
+        console.log("Interaction with user: (prompt / confirm examples)");
 
-        let isBoss = confirm("confirm example: Are you the boss?");
-        alert( isBoss ); // true if OK is pressed
+        // prompt / confirm yerine sabit değer gösteriyoruz
+        age = 100;
+        console.log("Prompt example: How old are you? → " + age);
 
-        // div içine yazdırmak için:
-        document.querySelector('#result').textContent =
-        "All these methods are modal: they pause script execution and don’t allow the visitor to interact with the rest of the page until the window has been dismissed.\n\nThere are two limitations shared by all the methods above:\n\nThe exact location of the modal window is determined by the browser. Usually, it’s in the center.\nThe exact look of the window also depends on the browser. We can’t modify it.\nThat is the price for simplicity.";
+        let isBoss = true;
+        console.log("Confirm example: Are you the boss? → " + isBoss);
 
+        
     </script>
 
     <div id="result"></div>
+
+    <div style="margin-top:20px;">
+        <span style="color:gray;">No Previous Page</span>  |
+        <a href="00_Index.html">Index</a> |
+        <a href="02_Conditions.html">Next Page &rarr;</a> |
+    </div>
 </body>
 </html>
-
-
-<!-- use as <script src="variables.js"> when js is coded in variables.js -->

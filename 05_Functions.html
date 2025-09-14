@@ -116,7 +116,7 @@
         alert( sum(5, 10) ); // 15
     </pre>
     <script>
-        let sum = (a, b) => a + b;
+        sum = (a, b) => a + b;
 
         alert( sum(1, 2) ); // 3
         alert( sum(5, 10) ); // 15
@@ -139,6 +139,29 @@
     </script>
     <br>
     <br>    
+    Here is an example of using an arrow function in a conditional (ternary) operator. We create welcome function dynamically based on the age.
+    <pre>
+        "use strict";
+
+        let age = prompt("What is your age?", 18);
+
+        let welcome = (age &lt; 18) ?
+          () =&gt; console.log('Hello!') :
+          () =&gt; console.log("Greetings!");
+
+        welcome();
+    </pre>
+    <script>
+        "use strict";
+
+        let age = prompt("What is your age?", 18);
+
+        let welcome = (age < 18) ?
+        () => console.log('Hello!') :
+        () => console.log("Greetings!");
+
+        welcome();
+    </script>
     <h3>Functions are Objects</h3>
     <p>In JavaScript, functions are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments to other functions, and returned from other functions.</p>
     <pre>
@@ -185,8 +208,14 @@
         sayHi = createGreeting("Hi"); // Returning function from another function
         alert( sayHi("Bob") ); // Hi, Bob!
     </script>
-
-    <a href="04_Objects.html">&larr; Previous Page</a> |
-    <a href="06_Arrays.html">Next Page &rarr;</a>
+    <br>
+    <br>
+    Functions should be short and do exactly one thing!
+    <br>
+    <div style="margin-top:20px;">
+      <a href="04_Objects.html">&larr; Previous Page</a> |
+      <a href="00_Index.html">Index</a> |
+      <a href="06_FunctionExamples.html">Next Page &rarr;</a>
+    </div>
 </body> 
 </html>
